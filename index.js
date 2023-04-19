@@ -48,11 +48,22 @@ let YEAR = DATE.getFullYear();
 let MONTH = DATE.getMonth();
 let DAY = DATE.getDate();
 let HOUR = DATE.getHours();
+let MINUTE = DATE.getMinutes();
+let TIME;
 let sessionVale = "မနက်ပိုင်း";
 let showText;
-let countDownDate = new Date(`${MONTH+1} ${DAY}, ${YEAR} 16:00:00`).getTime();
+console.log(HOUR,MINUTE);
+if(HOUR <= 12 && MINUTE == 1) {
+    TIME = "12:01:00"
+}else if(HOUR <= 16 && MINUTE ==30){
+    TIME = "16:30:00";
+}else{
+    TIME = "0:00:00";
+}
 
-setInterval(() =>  {
+let countDownDate = new Date(`${MONTH+1} ${DAY}, ${YEAR} ${TIME}`).getTime();
+
+let lastTime = setInterval(() =>  {
     // code goes here
     if(HOUR > 12){
         sessionVale = "ညနေပိုင်း"
@@ -70,6 +81,8 @@ setInterval(() =>  {
         showText = `${seconds} စက္ကန့်သာလိုပါတော့သည်။`;
     }else if(seconds == 0){
         showText = `ပေါက်ဂဏန်းထွက်ပါပြီ`;
+    }else if(hours < 0){
+        showText = `ပေါက်ဂဏန်းများထွက်ပြီးပါပြီး`;
     }else{
         showText = `${hours} နာရီ ${minutes} မိနစ် ${seconds} စက္ကန့်သာလိုပါတော့သည်။`;
     }
