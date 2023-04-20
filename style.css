@@ -185,6 +185,7 @@ nav .liveText{
 }
 .right .remainTime{
     font-size: 25px;
+    text-align: center;
 }
 @keyframes liveValue{
     0%{
