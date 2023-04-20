@@ -70,6 +70,54 @@ nav .liveText{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 40px;
+}
+#today{
+    color: var(--bg);
+    font-size: 25px;
+}
+#secondContainer{
+    display: flex;
+    flex-direction: column;
+}
+#time{
+    font-size: 30px;
+}
+#containerResult{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#oneKeyContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+#oneKey{
+    font-size: 60px;
+    color: green;
+    padding-left: 30px;
+}
+#onePlan{
+    font-size: 40px;
+    color: goldenrod;
+}
+#onekeyOwn h1{
+    color: blue;
+    font-size: 25px;
+}
+#oneChange{
+    font-size: 40px;
+    color: red;
+    padding-left: 30px;
+}
+#likeNumberContainer{
+  text-align: center;
+}
+#likeNumbar{
+  color: #ff1361;
 }
 .center{
     flex: 1;
@@ -130,10 +178,10 @@ nav .liveText{
     justify-content: center;
     gap: 30px;
 }
-.right h1{
-    font-size: 50px;
+.shadeText{
+    font-size: 40px;
     color: #424b54;
-    animation: openText 5s linear 0s infinite reverse forwards;
+    animation: shadeText 5s linear 0s infinite reverse forwards;
 }
 .right .remainTime{
     font-size: 25px;
@@ -146,7 +194,7 @@ nav .liveText{
         opacity: 1;
     }
 }
-@keyframes openText {
+@keyframes shadeText {
 	0% {
 		animation-timing-function: ease-out;
 		transform: scale(1);
@@ -177,4 +225,24 @@ nav .liveText{
   to {
     background-position: 200% center;
   }
+}
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+}
+footer span {
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    color: white;
+    text-transform: uppercase;
+    animation: flip 3s infinite;
+    animation-delay: calc(.3s * var(--i))
+}
+@keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
 }

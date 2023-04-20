@@ -5,7 +5,7 @@ const value = document.getElementById("value");
 const bottom = document.getElementById("bottom");
 const session = document.getElementById("session");
 const remainTime = document.getElementById("remainTime");
-
+let AM ="10:00", PM = "02:00";
 const getData = async () => {
     const fact = await fetch("https://api.thaistock2d.com/live").then((res) => res.json()).then((data)=> {
         return data;
@@ -53,14 +53,14 @@ let TIME;
 let sessionVale = "မနက်ပိုင်း";
 let showText;
 console.log(HOUR,MINUTE);
-if(HOUR <= 12 && MINUTE == 1) {
+if(HOUR < 12 && HOUR <= 12) {
     TIME = "12:01:00"
-}else if(HOUR <= 16 && MINUTE ==30){
+}else if(HOUR >= 12 && HOUR <= 16 ){
     TIME = "16:30:00";
 }else{
     TIME = "0:00:00";
 }
-
+// console.log(TIME);
 let countDownDate = new Date(`${MONTH+1} ${DAY}, ${YEAR} ${TIME}`).getTime();
 
 let lastTime = setInterval(() =>  {
@@ -75,16 +75,140 @@ let lastTime = setInterval(() =>  {
     var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+    console.log(hours);
     if(hours == 0){
-        showText = `${minutes} မိနစ် ${seconds} စက္ကန့်သာလိုပါတော့သည်။`;
+        showText = `${minutes} မိနစ် ${seconds} စက္ကန့် <br/> သာလိုပါတော့သည်။`;
     }else if(minutes == 0 ){
-        showText = `${seconds} စက္ကန့်သာလိုပါတော့သည်။`;
+        showText = `${seconds}စက္ကန့် <br/> သာလိုပါတော့သည်။`;
     }else if(seconds == 0){
         showText = `ပေါက်ဂဏန်းထွက်ပါပြီ`;
     }else if(hours < 0){
         showText = `ပေါက်ဂဏန်းများထွက်ပြီးပါပြီး`;
     }else{
-        showText = `${hours} နာရီ ${minutes} မိနစ် ${seconds} စက္ကန့်သာလိုပါတော့သည်။`;
+        showText = `${hours} နာရီ ${minutes} မိနစ် ${seconds} စက္ကန့် <br/> သာလိုပါတော့သည်။`;
     }
     remainTime.innerHTML = showText
 }, 1000);
+
+// New js
+const today = new Date()
+let yyyy = today.getFullYear()
+let mm = today.getMonth()
+let dd = today.getDate()
+let day = today.getDay()
+let plan, conH = AM
+
+// console.log(today)
+let sessionMyn = "မနက်ပိုင်း"
+let sess = "AM"
+let h = 0,m = 0, s = 0
+function showTime(){
+    let today = new Date()
+    h = today.getHours() // 0 - 23
+    m = today.getMinutes() // 0 - 59
+    s = today.getSeconds() // 0 - 59
+    if(h == 0){
+        h = 12
+    }
+    if(h > 12){
+        h = h - 12
+        sess = "PM"
+        sessionMyn = "ညနေပိုင်း"
+        conH = PM
+    }
+    h = (h < 10) ? "0" + h : h
+    m = (m < 10) ? "0" + m : m
+    s = (s < 10) ? "0" + s : s
+    var time =`Time - ${h}:${m}:${s} ${sess}`
+    document.getElementById('time').innerHTML = time
+    setTimeout(showTime, 1000)
+}
+showTime()
+
+if(day == 1){
+    day = "တနင်္လာ"
+    plan = "မင်္ဂလာလုံးပိုင်"
+}else if(day == 2){
+    day = "အင်္ဂါ"
+    plan = "အထူးလုံးပိုင်"
+}else if(day == 3){
+    day = "ဗုဒ္ဓဟူး"
+    plan = "ရှယ်လုံးပိုင်"
+}else if(day == 4){
+    day = "ကြာသပတေး"
+    plan = "အပိုင်လုံးပိုင်"
+}else if(day == 5){
+    day = "သောကြာ"
+    plan = "ပွဲသိမ်းလုံးပိုင်"
+}else if(day == 6){
+    day = "စနေ"
+    plan = "No Plan"
+}else if(day==7){
+    day = "တနင်္ဂနွေ"
+    plan = "No Plan"
+}else{
+    day = "No Found"
+    plan = "No Plan"
+}
+
+if (dd < 10) dd = '0' + dd
+if (mm < 10) mm = '0' + (mm + 1)
+
+const Today = `${dd}-${mm}-${yyyy}(${sessionMyn}) - ${day}နေ့`
+// console.log(Today)
+document.getElementById('today').innerHTML = Today
+
+// making one key
+let oneKey = 0,oneChange = 0
+function makingOneKey(){
+    let oneKeyShow = document.getElementById("oneKey")
+    oneKey = Math.floor(Math.random() * 10)
+    oneKeyShow.innerHTML = oneKey
+    // let conH = "03:10"
+    let currenH = `${h}:${m}`
+    if(currenH < conH){
+        setTimeout(makingOneKey, 1000)
+    }else{
+        clearTimeout(makingOneKey)
+    }
+}
+makingOneKey()
+
+//making One Change
+function makingOneChange(){
+    let oneChangeShow = document.getElementById("oneChange")
+    oneChange = Math.floor(Math.random() * 2) + 1
+    if(oneChange ==1){
+        oneChange = "ထိပ်"
+    }else{
+        oneChange = "ပိတ်"
+    }
+    oneChangeShow.innerHTML = oneChange
+    // let conH = "03:10"
+    let currenH = `${h}:${m}`
+    if(currenH < conH){
+        setTimeout(makingOneChange, 1000)
+    }else{
+        clearTimeout(makingOneChange)
+        document.getElementById("onePlan").innerHTML = plan
+        let oneLike = Math.floor(Math.random() * 10)
+        let twoLike = Math.floor(Math.random() * 10)
+        let threeLike = Math.floor(Math.random() * 10)
+        if(oneChange == "ထိပ်"){
+            document.getElementById("likeNumbar").innerHTML = `စိတ်ကြိုက်ဂဏန်း # [${oneKey}${oneLike}] [${oneKey}${twoLike}] [${oneKey}${threeLike}]`
+        }else{
+            document.getElementById("likeNumbar").innerHTML = `စိတ်ကြိုက်ဂဏန်း # [${oneLike}${oneKey}] [${twoLike}${oneKey}] [${threeLike}${oneKey}]`
+        }
+    }
+}
+makingOneChange();
+
+// const testData = async () => {
+//     const fact = await fetch("https://api.thaistock2d.com/history?date=2023-04-20").then((res) => res.json()).then((data)=> {
+//         return data;
+//     })
+//     const {child} = fact[0];
+//     console.table(child);
+// }
+
+// testData();
