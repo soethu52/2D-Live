@@ -212,3 +212,28 @@ makingOneChange();
 // }
 
 // testData();
+// const playBTN = document.getElementById("playBTN");
+// playBTN.addEventListener('click', () => {
+//     let audio = new Audio('./src/song1.mp3');
+//     audio.play();
+//     audio.controls;
+//     // audio.loop = true;
+//     audio.addEventListener("ended", () => {
+//         console.log("End")
+//     });
+// })
+let i=1;
+let nextSong= "";
+function setup() {
+    document.getElementById('audio').addEventListener('ended', function(){
+        i++;
+        nextSong = "./src/song"+i+".mp3";
+        audioPlayer = document.getElementById('audio');
+        audioPlayer.src = nextSong;
+        audioPLayer.load();
+        audioPlayer.play();
+        if(i == 4) { // this is the end of the songs.
+            i = 1;
+        }
+    }, false);
+}
