@@ -5,13 +5,42 @@ const value = document.getElementById("value");
 const bottom = document.getElementById("bottom");
 const session = document.getElementById("session");
 const remainTime = document.getElementById("remainTime");
+let signal = document.getElementById("signal");
 let AM ="10:00", PM = "02:00";
+let result = [
+    {open_time:"12:01:00",twod:"-,-",set: "-",value: ""},
+    {open_time:"16:30:00",twod:"-,-",set: "-",value: ""}
+];
+let signalBollen = false;
 const getData = async () => {
     const fact = await fetch("https://api.thaistock2d.com/live").then((res) => res.json()).then((data)=> {
         return data;
-    })
-    // console.log(fact);
-    const { live,  result, holiday, server_time } = fact;
+    });
+    const { live, holiday, server_time } = fact;
+    let DATE = new Date();
+    let splitDate = String(DATE).split(" ")[4];
+    if(splitDate === "12:01:00"){
+        let data = {
+            open_time:"12:01:00",
+            twod:live.twod,
+            set: live.set,
+            value: live.value
+        }
+        result[0] = data;
+        signalBollen = true;
+    }else if(splitDate === "16:30:00"){
+        let data = {
+            open_time:"16:30:00",
+            twod:live.twod,
+            set: live.set,
+            value: live.value
+        }
+        result[1] = data;
+        signalBollen = true;
+    }else if(splitDate === "13:00:00"){
+        signalBollen = false;
+    }
+    signalBollen ? signal.style.display= "block" : signal.style.display= "none";
     liveVal.innerHTML = live.twod;
     set.innerHTML = `Set-${live.set}`;
     value.innerHTML = `Value-${live.value}`;
@@ -203,25 +232,11 @@ function makingOneChange(){
 }
 makingOneChange();
 
-// const testData = async () => {
-//     const fact = await fetch("https://api.thaistock2d.com/history?date=2023-04-20").then((res) => res.json()).then((data)=> {
-//         return data;
-//     })
-//     const {child} = fact[0];
-//     console.table(child);
-// }
-
-// testData();
-// const playBTN = document.getElementById("playBTN");
-// playBTN.addEventListener('click', () => {
-//     let audio = new Audio('./src/song1.mp3');
-//     audio.play();
-//     audio.controls;
-//     // audio.loop = true;
-//     audio.addEventListener("ended", () => {
-//         console.log("End")
-//     });
-// })
+let play = document.getElementById("play");
+play.addEventListener('click', () => {
+    let audio = document.getElementById("audio");
+    audio.play();
+})
 let i=1;
 let nextSong= "";
 function setup() {
@@ -232,7 +247,7 @@ function setup() {
         audioPlayer.src = nextSong;
         audioPLayer.load();
         audioPlayer.play();
-        if(i == 4) { // this is the end of the songs.
+        if(i == 4) {
             i = 1;
         }
     }, false);

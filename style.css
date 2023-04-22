@@ -62,7 +62,7 @@ nav .liveText{
 .container{
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 120px);
 }
 .left{
     flex: 1;
@@ -96,12 +96,12 @@ nav .liveText{
     margin: 0;
 }
 #oneKey{
-    font-size: 60px;
+    font-size: 40px;
     color: green;
     padding-left: 30px;
 }
 #onePlan{
-    font-size: 40px;
+    font-size: 30px;
     color: goldenrod;
 }
 #onekeyOwn h1{
@@ -109,7 +109,7 @@ nav .liveText{
     font-size: 25px;
 }
 #oneChange{
-    font-size: 40px;
+    font-size: 30px;
     color: red;
     padding-left: 30px;
 }
@@ -118,6 +118,7 @@ nav .liveText{
 }
 #likeNumbar{
   color: #ff1361;
+  font-size: 25px;
 }
 .center{
     flex: 1;
@@ -140,6 +141,11 @@ nav .liveText{
    font-size: 150px;
    color: goldenrod;
    animation: liveValue 1s alternate ease infinite;
+}
+.center .top .confirm{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 .center .middle{
     display: flex;
@@ -179,7 +185,7 @@ nav .liveText{
     gap: 30px;
 }
 .shadeText{
-    font-size: 40px;
+    font-size: 30px;
     color: #424b54;
     animation: shadeText 5s linear 0s infinite reverse forwards;
 }
@@ -232,11 +238,12 @@ footer {
     align-items: center;
     justify-content: center;
     background-color: var(--dark);
+    height: 40px;
 }
 footer span {
     position: relative;
     display: inline-block;
-    font-size: 30px;
+    font-size: 20px;
     color: white;
     text-transform: uppercase;
     animation: flip 3s infinite;
