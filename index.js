@@ -9,7 +9,7 @@ let signal = document.getElementById("signal");
 let AM ="10:00", PM = "02:00";
 let result = [
     {open_time:"Time",twod:"2D",set: "Set",value: "Value"},
-    {open_time:"16:30:00",twod:"-,-",set: "-",value: "-"},
+    {open_time:"12:01:00",twod:"-,-",set: "-",value: "-"},
     {open_time:"16:30:00",twod:"-,-",set: "-",value: "-"}
 ];
 let signalBollen = false;
@@ -247,7 +247,8 @@ function setup() {
         audioPlayer.src = nextSong;
         audioPLayer.load();
         audioPlayer.play();
-        if(i == 4) {
+        audioPlayer.loop();
+        if(i == 10) {
             i = 1;
         }
     }, false);
