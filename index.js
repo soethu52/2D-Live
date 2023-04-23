@@ -8,8 +8,9 @@ const remainTime = document.getElementById("remainTime");
 let signal = document.getElementById("signal");
 let AM ="10:00", PM = "02:00";
 let result = [
-    {open_time:"12:01:00",twod:"-,-",set: "-",value: ""},
-    {open_time:"16:30:00",twod:"-,-",set: "-",value: ""}
+    {open_time:"Time",twod:"2D",set: "Set",value: "Value"},
+    {open_time:"16:30:00",twod:"-,-",set: "-",value: "-"},
+    {open_time:"16:30:00",twod:"-,-",set: "-",value: "-"}
 ];
 let signalBollen = false;
 const getData = async () => {
@@ -26,7 +27,7 @@ const getData = async () => {
             set: live.set,
             value: live.value
         }
-        result[0] = data;
+        result[1] = data;
         signalBollen = true;
     }else if(splitDate === "16:30:00"){
         let data = {
@@ -35,7 +36,7 @@ const getData = async () => {
             set: live.set,
             value: live.value
         }
-        result[1] = data;
+        result[2] = data;
         signalBollen = true;
     }else if(splitDate === "13:00:00"){
         signalBollen = false;
@@ -63,7 +64,6 @@ const getData = async () => {
         let value = document.createElement("div");
         value.innerHTML = val.value;
         li.append(value);
-
         ul.appendChild(li);
     }))
     bottom.appendChild(ul);
