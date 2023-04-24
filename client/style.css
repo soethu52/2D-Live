@@ -1,0 +1,269 @@
+:root{
+    --bg: #424b54;
+    --dark: #151719;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    height: 80px;
+    background-color: var(--dark);
+}
+.waviy {
+    position: relative;
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+    font-size: 40px;
+}
+.waviy span {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+}
+@keyframes waviy {
+    0%,40%,100% {
+      transform: translateY(0)
+    }
+    20% {
+      transform: translateY(-20px)
+    }
+}
+nav .liveText{
+    text-transform: uppercase;
+    background-image: linear-gradient(
+        -225deg,
+        #231557 0%,
+        #44107a 29%,
+        #ff1361 67%,
+        #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: liveText 1s linear infinite;
+    display: inline-block;
+    font-size: 30px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 120px);
+}
+.left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+#today{
+    color: var(--bg);
+    font-size: 25px;
+}
+#secondContainer{
+    display: flex;
+    flex-direction: column;
+}
+#time{
+    font-size: 30px;
+}
+#containerResult{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#oneKeyContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+#oneKey{
+    font-size: 40px;
+    color: green;
+    padding-left: 30px;
+}
+#onePlan{
+    font-size: 30px;
+    color: goldenrod;
+}
+#onekeyOwn h1{
+    color: blue;
+    font-size: 25px;
+}
+#oneChange{
+    font-size: 30px;
+    color: red;
+    padding-left: 30px;
+}
+#likeNumberContainer{
+  text-align: center;
+}
+#likeNumbar{
+  color: #ff1361;
+  font-size: 25px;
+}
+.center{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.center .top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+}
+.center .top h1{
+   font-size: 150px;
+   color: goldenrod;
+   animation: liveValue 1s alternate ease infinite;
+}
+.center .top .confirm{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.center .middle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    height: 10%;
+    background-color: #424b54;
+    color: white;
+    font-size: 25px;
+}
+.center .bottom{
+    width: 100%;
+    height: 50%;
+}
+.center .bottom ul{
+    width: 100%;
+    background-color: aliceblue;
+}
+.center .bottom ul li{
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 40px;
+    font-size: 25px;
+    width: 100%;
+}
+.center .bottom ul li div{
+    width: 20%;
+    text-align: center;
+}
+.center .bottom li:nth-child(even){
+    color: white;
+    background-color: #3e4043;
+}
+.right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.shadeText{
+    font-size: 30px;
+    color: #424b54;
+    animation: shadeText 5s linear 0s infinite reverse forwards;
+}
+.right .remainTime{
+    font-size: 25px;
+    text-align: center;
+}
+@keyframes liveValue{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes shadeText {
+	0% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+		transform-origin: center center;
+	}
+
+	10% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	17% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	33% {
+		animation-timing-function: ease-in;
+		transform: scale(0.87);
+	}
+
+	45% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+	}
+}
+@keyframes liveText {
+  to {
+    background-position: 200% center;
+  }
+}
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    height: 40px;
+}
+footer span {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+    animation: flip 3s infinite;
+    animation-delay: calc(.3s * var(--i))
+}
+@keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+}
+#play{
+    position: absolute;
+    right: 10px;
+}

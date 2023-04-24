@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <title>Lucky 2D Channel</title>
+</head>
+<body onLoad="setup()">
+    <nav>
+        <div class="waviy">
+            <span style="--i:1">L</span>
+            <span style="--i:2">U</span>
+            <span style="--i:3">C</span>
+            <span style="--i:4">K</span>
+            <span style="--i:5">Y</span>
+            <span style="--i:6">2</span>
+            <span style="--i:7">D</span>
+            <span style="--i:8">C</span>
+            <span style="--i:9">H</span>
+            <span style="--i:10">A</span>
+            <span style="--i:11">N</span>
+            <span style="--i:12">N</span>
+            <span style="--i:13">A</span>
+            <span style="--i:14">L</span>
+        </div>
+        <h2 class="liveText">Live</h2>
+    </nav>
+    <div class="container">
+        <div class="left">
+            <h1 id="time"></h1>
+            <h1 id="today"></h1>
+            <div id="secondContainer">
+                <div id="containerResult">
+                    <h1 class="shadeText">ဆွေသဟာတို့အတွက် တစ်လုံးပိုင်</h1>
+                    <div id="oneKeyContainer">
+                        <h1 id="onePlan"></h1>
+                        <p id="oneKey"></p>
+                        <p id="oneChange"></p>
+                    </div>
+                    <div id="likeNumberContainer">
+                        <h1 id="likeNumbar"></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="top">
+                <h1 id="live"></h1>
+                <div class="confirm">
+                    <img src="./src/confirm.png" alt="" id="signal">
+                    <span id="updated"></span>
+                </div>
+            </div>
+            <div class="middle">
+                <h3 id="set"></h3>
+                <h3 id="value"></h3>
+            </div>
+            <div class="bottom" id="bottom"></div>
+        </div>
+        <div class="right">
+            <h2 id="session"></h1>
+            <h1 class="shadeText">2D ထွက်ရန်</h1>
+            <h3 class="remainTime" id="remainTime"></h3>
+        </div>
+    </div>
+    <footer>
+        <span style="--i:1">နေ့</span>
+        <span style="--i:2">စဉ်</span>
+        <span style="--i:3">မ</span>
+        <span style="--i:4">နက်</span>
+        <span style="--i:5">၁၀</span>
+        <span style="--i:6">နာ</span>
+        <span style="--i:7">ရီ</span>
+        <span style="--i:8">နှင့်</span>
+        <span style="--i:9">နေ့</span>
+        <span style="--i:10">လယ်</span>
+        <span style="--i:11">၂</span>
+        <span style="--i:12">နာ</span>
+        <span style="--i:13">ရီ</span>
+        <span style="--i:14">တို့</span>
+        <span style="--i:15">တွင်</span>
+        <span style="--i:16">စောင့်</span>
+        <span style="--i:17">မျှော်</span>
+        <span style="--i:18">ကြည့်</span>
+        <span style="--i:19">ရှု</span>
+        <span style="--i:20">နိုင်</span>
+        <span style="--i:21">ပါ</span>
+        <span style="--i:22">သည်</span>
+        <audio id="audio" src="src/song1.mp3" autoplay></audio>
+        <button id="play">Play</button>
+    </footer>
+    <script src="./index.js"></script>
+    </body>
+</html>
