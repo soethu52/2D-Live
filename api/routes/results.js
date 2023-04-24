@@ -1,6 +1,6 @@
 import express from "express";
-import { insertValue } from "../controllers/results.js";
 const  router = express.Router();
+import { insertValue } from "../controllers/results.js";
 
-router.get("/", insertValue);
+router.post("/", insertValue);
 export default router;
